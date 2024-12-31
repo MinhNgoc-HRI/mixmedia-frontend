@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Category {
+  id   String @id @default(uuid())
+  name String
+  slug String @unique
+  movies Movie[] @relation("MovieCategory")
+}
+
+
+model Country {
+  id   String @id @default(uuid())
+  name String
+  slug String @unique
+  movies Movie[] @relation("MovieCountry")
+}
+
+model Episode {
+  id         String @id @default(uuid())
+  serverName String
+  serverData Json
+  movieId    String
+  movie      Movie  @relation(fields: [movieId], references: [id])
+}
+
+
+model Movie {
+  id            String     @id @default(uuid())
+  tmdb          Json?
+  name          String?
+  slug          String
+  originName    String?
+  content       String
+  type          String?
+  status        String?
+  thumbUrl      String?
+  posterUrl     String?
+  isCopyright   Boolean    @default(false)
+  subDocquyen   Boolean    @default(false)
+  chieurap      Boolean    @default(false)
+  trailerUrl    String?
+  time          String?
+  episodeCurrent String?
+  episodeTotal  String?
+  quality       String?
+  lang          String?
+  notify        String?
+  showtimes     String?
+  year          Int?
+  view          Int?
+  actor         String[]   @default([])
+  director      String[]   @default([])
+  created       DateTime   @default(now())
+  modified      DateTime   @updatedAt
+
+  categories    Category[] @relation("MovieCategory")
+  countries     Country[]  @relation("MovieCountry")
+  episodes      Episode[]
+}
