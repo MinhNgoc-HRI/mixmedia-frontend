@@ -6,9 +6,9 @@
     "auditLog": "/Users/minhngoc/NodeJS/mixmedia-frontend/src/logs/debug/.12a8eed22bcc9055740b27170c08aadede7330f7-audit.json",
     "files": [
         {
-            "date": 1735546445942,
-            "name": "/Users/minhngoc/NodeJS/mixmedia-frontend/src/logs/debug/2024-12-30.log",
-            "hash": "92ab4700c69f34f6d64ed9742d5f4d04b028eb23019e4d9a1ef1e358c5ea3a6b"
+            "date": 1735800894198,
+            "name": "/Users/minhngoc/NodeJS/mixmedia-frontend/src/logs/debug/2025-01-02.log",
+            "hash": "3eb3dfb730f5565acd419a72f362852ce565b7f04d48e0b6d7188e05be6e9cba"
         }
     ],
     "hashType": "sha256"
